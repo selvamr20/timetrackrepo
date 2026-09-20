@@ -5,6 +5,15 @@ time: logging billable hours against projects, and summarizing them.
 """
 import sqlite3
 from pathlib import Path
+import os
+
+DB_PATH = Path("timesheet.db").resolve()
+
+print("DB:", DB_PATH)
+print("DB exists:", DB_PATH.exists())
+print("DB writable:", os.access(DB_PATH, os.W_OK))
+print("Directory:", DB_PATH.parent)
+print("Directory writable:", os.access(DB_PATH.parent, os.W_OK))
 
 DB_PATH = Path(__file__).parent / "timetrack.db"
 
